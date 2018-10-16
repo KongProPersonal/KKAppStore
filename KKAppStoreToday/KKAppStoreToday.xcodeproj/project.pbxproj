@@ -13,6 +13,11 @@
 		17E737CD2175BC9900064D35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17E737CC2175BC9900064D35 /* Assets.xcassets */; };
 		17E737D02175BC9900064D35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17E737CE2175BC9900064D35 /* LaunchScreen.storyboard */; };
 		17E737D32175BC9900064D35 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E737D22175BC9900064D35 /* main.m */; };
+		17E737DE2175BD8B00064D35 /* KKTabarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E737DC2175BD8B00064D35 /* KKTabarController.m */; };
+		17E737F62175BEA300064D35 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E737F52175BEA300064D35 /* HomeViewController.m */; };
+		17E737F92175BEA900064D35 /* KKTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E737F72175BEA900064D35 /* KKTableViewCell.m */; };
+		17E737FC2175BEAF00064D35 /* KKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E737FA2175BEAF00064D35 /* KKModel.m */; };
+		17E737FF2175C5AE00064D35 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E737FE2175C5AE00064D35 /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,16 @@
 		17E737CF2175BC9900064D35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17E737D12175BC9900064D35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17E737D22175BC9900064D35 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		17E737DC2175BD8B00064D35 /* KKTabarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKTabarController.m; sourceTree = "<group>"; };
+		17E737DD2175BD8B00064D35 /* KKTabarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKTabarController.h; sourceTree = "<group>"; };
+		17E737F42175BEA300064D35 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		17E737F52175BEA300064D35 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		17E737F72175BEA900064D35 /* KKTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKTableViewCell.m; sourceTree = "<group>"; };
+		17E737F82175BEA900064D35 /* KKTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKTableViewCell.h; sourceTree = "<group>"; };
+		17E737FA2175BEAF00064D35 /* KKModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKModel.m; sourceTree = "<group>"; };
+		17E737FB2175BEAF00064D35 /* KKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKModel.h; sourceTree = "<group>"; };
+		17E737FD2175C5AE00064D35 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		17E737FE2175C5AE00064D35 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +73,35 @@
 		17E737C22175BC9700064D35 /* KKAppStoreToday */ = {
 			isa = PBXGroup;
 			children = (
+				17E737DA2175BD0000064D35 /* Main */,
+				17E737D92175BCF900064D35 /* Home */,
+				17E737DB2175BD0A00064D35 /* OtherFiles */,
+			);
+			path = KKAppStoreToday;
+			sourceTree = "<group>";
+		};
+		17E737D92175BCF900064D35 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				17E737F32175BE9600064D35 /* Controller */,
+				17E737EA2175BE2400064D35 /* View */,
+				17E737E92175BE1A00064D35 /* Model */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		17E737DA2175BD0000064D35 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				17E737DD2175BD8B00064D35 /* KKTabarController.h */,
+				17E737DC2175BD8B00064D35 /* KKTabarController.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		17E737DB2175BD0A00064D35 /* OtherFiles */ = {
+			isa = PBXGroup;
+			children = (
 				17E737C32175BC9700064D35 /* AppDelegate.h */,
 				17E737C42175BC9700064D35 /* AppDelegate.m */,
 				17E737C62175BC9700064D35 /* ViewController.h */,
@@ -68,7 +112,36 @@
 				17E737D12175BC9900064D35 /* Info.plist */,
 				17E737D22175BC9900064D35 /* main.m */,
 			);
-			path = KKAppStoreToday;
+			path = OtherFiles;
+			sourceTree = "<group>";
+		};
+		17E737E92175BE1A00064D35 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				17E737FB2175BEAF00064D35 /* KKModel.h */,
+				17E737FA2175BEAF00064D35 /* KKModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		17E737EA2175BE2400064D35 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				17E737F82175BEA900064D35 /* KKTableViewCell.h */,
+				17E737F72175BEA900064D35 /* KKTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		17E737F32175BE9600064D35 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				17E737F42175BEA300064D35 /* HomeViewController.h */,
+				17E737F52175BEA300064D35 /* HomeViewController.m */,
+				17E737FD2175C5AE00064D35 /* DetailViewController.h */,
+				17E737FE2175C5AE00064D35 /* DetailViewController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,7 +216,12 @@
 			files = (
 				17E737C82175BC9700064D35 /* ViewController.m in Sources */,
 				17E737D32175BC9900064D35 /* main.m in Sources */,
+				17E737FC2175BEAF00064D35 /* KKModel.m in Sources */,
+				17E737FF2175C5AE00064D35 /* DetailViewController.m in Sources */,
+				17E737DE2175BD8B00064D35 /* KKTabarController.m in Sources */,
+				17E737F62175BEA300064D35 /* HomeViewController.m in Sources */,
 				17E737C52175BC9700064D35 /* AppDelegate.m in Sources */,
+				17E737F92175BEA900064D35 /* KKTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +364,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = KKAppStoreToday/Info.plist;
+				DEVELOPMENT_TEAM = 2NM57BU4V9;
+				INFOPLIST_FILE = KKAppStoreToday/OtherFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +381,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = KKAppStoreToday/Info.plist;
+				DEVELOPMENT_TEAM = 2NM57BU4V9;
+				INFOPLIST_FILE = KKAppStoreToday/OtherFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
