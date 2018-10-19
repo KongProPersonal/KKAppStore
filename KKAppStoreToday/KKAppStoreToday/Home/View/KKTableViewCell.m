@@ -44,7 +44,7 @@
 - (UIView *)bgView{
     if (!_bgView) {
         _bgView = [[UIView alloc] initWithFrame:CGRectMake(kMargin, kMargin * 1.4, kWidth, kHeight)];
-        _bgView.layer.cornerRadius = 8;
+        _bgView.layer.cornerRadius = 10;
         _bgView.layer.masksToBounds = YES;
     }
     return _bgView;
@@ -52,7 +52,7 @@
 
 - (UIImageView *)imgView{
     if (!_imgView) {
-        _imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.contentView.bounds.size.width, self.contentView.bounds.size.height)];
+        _imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height * 0.7)];
         _imgView.contentMode = UIViewContentModeScaleAspectFill;
     }
     return _imgView;

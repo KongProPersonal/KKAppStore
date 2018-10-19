@@ -45,7 +45,7 @@
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 360;
+    return [UIScreen mainScreen].bounds.size.height * 0.6;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     self.selectedIndexPath = indexPath;
@@ -107,24 +107,31 @@
     
     // 2. 获取容器
     UIView *containerView = [transitionContext containerView];
+    containerView.backgroundColor = [UIColor redColor];
     
     // 3. 获取跳转时的，过度view
-    UIView *snapView = [[UIImageView alloc] initWithImage:cell.imgView.image];
-    snapView.contentMode = UIViewContentModeScaleAspectFill;
-    snapView.layer.cornerRadius = 8;
+    UIView *snapView = [[UIView alloc] init];
+    UIImageView *snapImgView = [[UIImageView alloc] initWithImage:cell.imgView.image];
+    snapImgView.frame = toView.frame;
+    snapImgView.contentMode = UIViewContentModeScaleAspectFill;
+    snapView.layer.cornerRadius = 10;
     snapView.layer.masksToBounds = YES;
     snapView.frame = [containerView convertRect:fromView.frame fromView:fromView.superview];
+    snapImgView.center = CGPointMake(snapView.frame.size.width * 0.5, snapView.frame.size.height * 0.5);
+    [snapView addSubview:snapImgView];
+    snapView.backgroundColor = [UIColor redColor];
     
     // 4. 向过度view上添加执行动画的view
     [containerView addSubview:toVC.view];
     [containerView addSubview:snapView];
     
     // 5. 执行动画
-    [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0f usingSpringWithDamping:0.75 initialSpringVelocity:2.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0f usingSpringWithDamping:0.7 initialSpringVelocity:1.0f options:UIViewAnimationOptionCurveLinear animations:^{
         [containerView layoutIfNeeded];
         toVC.view.alpha = 1;
         snapView.layer.cornerRadius = 0;
         snapView.frame = [containerView convertRect:toView.frame fromView:toView.superview];
+        snapImgView.center = CGPointMake(snapView.frame.size.width * 0.5, snapView.frame.size.height * 0.5);
         
     } completion:^(BOOL finished) {
         toView.alpha = 1;

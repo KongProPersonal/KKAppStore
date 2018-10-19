@@ -8,9 +8,8 @@
 
 #import "DetailViewController.h"
 
-@interface DetailViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface DetailViewController ()
 
-@property (nonatomic, copy) UITableView *tableView;
 @property (nonatomic, strong) UIImageView *headerImgView;
 
 @end
@@ -19,22 +18,21 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-//    [self.navigationController setNavigationBarHidden:YES animated:NO];
 
-    [UIView animateWithDuration:0.25 animations:^{
-        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
-    }];
+//    [UIView animateWithDuration:0.25 animations:^{
+//        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+//    }];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view addSubview:self.tableView];
-    self.tableView.tableHeaderView = [self createHeaderView];
+    self.view.backgroundColor = [UIColor orangeColor];
+    [self createHeaderView];
 }
 
-- (UIView *)createHeaderView{
+- (void)createHeaderView{
     self.headerImgView.image = [UIImage imageNamed:self.headerImgName];
-    return self.headerImgView;
+    [self.view addSubview:self.headerImgView];
 }
 
 
@@ -57,21 +55,9 @@
     return 500;
 }
 #pragma mark -- Lazy
-- (UITableView *)tableView{
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.rowHeight = 360;
-        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
-    }
-    return _tableView;
-}
-
 - (UIImageView *)headerImgView{
     if (!_headerImgView) {
-        _headerImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height * 0.75)];
+        _headerImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height * 0.7)];
         _headerImgView.contentMode = UIViewContentModeScaleAspectFill;
     }
     return _headerImgView;
