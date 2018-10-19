@@ -126,7 +126,7 @@
     [containerView addSubview:snapView];
     
     // 5. 执行动画
-    [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0f usingSpringWithDamping:0.7 initialSpringVelocity:1.0f options:UIViewAnimationOptionCurveLinear animations:^{
+    [UIView animateWithDuration:[self transitionDuration:transitionContext]-0.2 delay:0.0f usingSpringWithDamping:0.65 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         [containerView layoutIfNeeded];
         toVC.view.alpha = 1;
         snapView.layer.cornerRadius = 0;
