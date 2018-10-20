@@ -8,9 +8,11 @@
 
 #import "DetailViewController.h"
 
-@interface DetailViewController ()
+@interface DetailViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UIImageView *headerImgView;
+@property (nonatomic, strong) UITableView *tableView;
+
 
 @end
 
@@ -18,21 +20,28 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-
+    
 //    [UIView animateWithDuration:0.25 animations:^{
 //        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
 //    }];
 }
 
+- (BOOL)prefersStatusBarHidden {
+
+    return YES;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor orangeColor];
-    [self createHeaderView];
+    [self createTableView];
 }
 
-- (void)createHeaderView{
+- (void)createTableView{
     self.headerImgView.image = [UIImage imageNamed:self.headerImgName];
+//    self.tableView.tableHeaderView = self.headerImgView;
+    [self.view addSubview:self.tableView];
     [self.view addSubview:self.headerImgView];
+    
+    
 }
 
 
@@ -62,5 +71,18 @@
     }
     return _headerImgView;
 }
+
+- (UITableView *)tableView{
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+        _tableView.contentInset = UIEdgeInsetsMake(self.headerImgView.bounds.size.height, 0, 0, 0);
+        _tableView.scrollIndicatorInsets = UIEdgeInsetsMake(self.headerImgView.bounds.size.height, 0, 0, 0);
+    }
+    return _tableView;
+}
+
 
 @end

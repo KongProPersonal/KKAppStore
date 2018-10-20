@@ -98,6 +98,7 @@
     KKTableViewCell *cell = [self.tableView cellForRowAtIndexPath:self.selectedIndexPath];
     UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIView *toView = [toVC valueForKeyPath:@"headerImgView"];
+    UITableView *toTableView = (UITableView *)[toVC valueForKey:@"tableView"];
     UIView *fromView = cell.bgView;
     toView.alpha = 0;
 
@@ -107,7 +108,6 @@
     
     // 2. 获取容器
     UIView *containerView = [transitionContext containerView];
-    containerView.backgroundColor = [UIColor redColor];
     
     // 3. 获取跳转时的，过度view
     UIView *snapView = [[UIView alloc] init];
@@ -117,20 +117,26 @@
     snapView.layer.cornerRadius = 10;
     snapView.layer.masksToBounds = YES;
     snapView.frame = [containerView convertRect:fromView.frame fromView:fromView.superview];
+    toTableView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height, toTableView.bounds.size.width, toTableView.bounds.size.height);
+    toTableView.alpha = 0;
+    
     snapImgView.center = CGPointMake(snapView.frame.size.width * 0.5, snapView.frame.size.height * 0.5);
     [snapView addSubview:snapImgView];
-    snapView.backgroundColor = [UIColor redColor];
+
     
     // 4. 向过度view上添加执行动画的view
     [containerView addSubview:toVC.view];
     [containerView addSubview:snapView];
     
     // 5. 执行动画
-    [UIView animateWithDuration:[self transitionDuration:transitionContext]-0.2 delay:0.0f usingSpringWithDamping:0.65 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        [containerView layoutIfNeeded];
+    [UIView animateWithDuration:[self transitionDuration:transitionContext]-0.2 delay:0.0f usingSpringWithDamping:0.8 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+//        [containerView layoutIfNeeded];
         toVC.view.alpha = 1;
         snapView.layer.cornerRadius = 0;
         snapView.frame = [containerView convertRect:toView.frame fromView:toView.superview];
+        toTableView.frame = toVC.view.bounds;
+        toTableView.alpha = 1;
+        
         snapImgView.center = CGPointMake(snapView.frame.size.width * 0.5, snapView.frame.size.height * 0.5);
         
     } completion:^(BOOL finished) {
@@ -138,6 +144,7 @@
         [snapView removeFromSuperview];
         [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
     }];
+
 }
 
 
